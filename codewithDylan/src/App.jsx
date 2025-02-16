@@ -1,27 +1,22 @@
-import React from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Navigation from './components/Navigation';
-import AboutMe from './components/AboutMe';
-import Portfolio from './components/Portfolio';
-import Contact from './components/Contact';
-import Resume from './components/Resume';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import "./App.css";
 
 function App() {
     return (
-        <div>
-            <Header />
-            
-            <Navigation />
-            <main>
-                <AboutMe />
-                <Portfolio />
-                <Contact />
-                <Resume />
-            </main>
+        <Router>
+            <Navbar />
+            <Switch>
+                <Route path="/about" component={About} />
+                <Route path="/contact" component={Contact} />
+                <Route path="/" component={Home} />
+            </Switch>
             <Footer />
-        </div>
+        </Router>
     );
 }
-
-export default App;
